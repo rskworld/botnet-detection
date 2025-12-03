@@ -1,0 +1,56 @@
+{
+  "project": {
+    "name": "Botnet Detection with Machine Learning",
+    "version": "1.0.0",
+    "developer": "RSK World",
+    "founder": "Molla Samser",
+    "designer_tester": "Rima Khatun",
+    "contact": {
+      "email": ["help@rskworld.in", "support@rskworld.in"],
+      "phone": "+91 93305 39277",
+      "address": "Nutanhat, Mongolkote, Purba Burdwan, West Bengal, India, 713147",
+      "website": "https://rskworld.in"
+    }
+  },
+  "data": {
+    "raw_path": "data/raw/",
+    "processed_path": "data/processed/",
+    "training_data": "data/processed/training_data.csv",
+    "test_data": "data/processed/test_data.csv"
+  },
+  "models": {
+    "save_path": "data/models/",
+    "default_model": "random_forest",
+    "models_to_train": ["random_forest", "gradient_boosting", "logistic_regression", "svm"]
+  },
+  "training": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "cv_folds": 5,
+    "hyperparameter_tuning": {
+      "enabled": false,
+      "method": "randomized",
+      "n_iter": 50
+    }
+  },
+  "features": {
+    "target_column": "is_botnet",
+    "exclude_columns": ["label", "id", "timestamp"]
+  },
+  "evaluation": {
+    "metrics": ["accuracy", "precision", "recall", "f1_score", "roc_auc"],
+    "generate_plots": true,
+    "generate_report": true
+  },
+  "visualization": {
+    "output_path": "results/visualizations/",
+    "dpi": 300,
+    "style": "seaborn-v0_8-darkgrid"
+  },
+  "logging": {
+    "enabled": true,
+    "level": "INFO",
+    "file": "logs/botnet_detection.log"
+  }
+}
+
